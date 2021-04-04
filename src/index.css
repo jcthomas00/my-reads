@@ -1,3 +1,5 @@
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +12,100 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  bottom: -100px;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 0px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.small-icon {
+  max-width: 20px;
+  margin: 10px;
+}
+.books .list-group {
+  margin: 50px 10px;
+  text-align: left;
+}
+.books h2 {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+}
+.books .col {
+  margin-top: 16px;
+  font-size: 14px;
+  text-align: left;
+}
+.books .card-img-top {
+  height: 225px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.books .authors {
+  color: #aaa;
+  display: block;
+}
+.books .dropdown {
+  position: absolute;
+  top: 150px;
+  right: 3px;
+}
+.books .dropdown .dropdown-content button {
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  padding: 0;
+  padding: 10px;
+}
+.books .dropdown button.selected {
+  background: #ccff00;
+}
+.books .dropdown .dropdown-content a:first-child {
+  color: #777;
+  text-decoration: none;
+}
+.books .dropdown .material-icons {
+  color: #fff;
+  font-size: 48px;
+  background-color: green;
+  border-radius: 100px;
+  filter: drop-shadow(0 0 3px #333);
+}
+.books .back-link {
+  margin-top: 20px;
+  display: flex;
+  flex-flow: row;
+}
+.books .back-link:hover {
+  text-decoration: none;
+  color: crimson;
+}
+#search-button {
+  position: fixed;
+  z-index: 1;
+  bottom: 50px;
+  right: 20px;
+  font-size: 64px;
+  color: #fff;
+  background-color: crimson;
+  border-radius: 100px;
+  filter: drop-shadow(0 0 3px #333);
 }
