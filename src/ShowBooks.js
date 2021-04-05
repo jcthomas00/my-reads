@@ -1,11 +1,11 @@
 import BookButton from './BookButton';
 
 //Functional Component to display a grid of books
-const ShowBooks = (props) => {
+const ShowBooks = ({ moveBook, shelves, books} ) => {
     return (
         <div className="container">
             <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
-                {props.books.map((book) => (
+                {books.map((book) => (
                     <div className="col" key={book.id}>
                         <div className="card shadow-sm h-100">
                             {book.imageLinks && (
@@ -18,9 +18,9 @@ const ShowBooks = (props) => {
                                 </span>
                                 <div className="dropdown-content">
                                     <button className="disabled" disabled>Move to...</button>
-                                    {props.shelves.map((shelf) => (
+                                    {shelves.map((shelf) => (
                                         //load dropdown options for each book
-                                        <BookButton key={shelf.shelfID} moveBook={props.moveBook} book={book} shelf={shelf} />
+                                        <BookButton key={shelf.shelfID} moveBook={moveBook} book={book} shelf={shelf} />
                                     ))}
                                 </div>
                             </div>

@@ -1,15 +1,15 @@
 //Functional component to display dropdown option for each book
 
-const BookButton = (props) => {
+const BookButton = ({ moveBook, book, shelf }) => {
     //add selected classes for the book and mark 'none' as selected if book is not in a shelf
-    let buttonClasses = props.book.shelf === props.shelf.shelfID ? "selected":"";
-    buttonClasses += (!props.book.shelf || props.book.shelf==='none') && (props.shelf.shelfID) === 'none' ? "selected":"";
+    let buttonClasses = book.shelf === shelf.shelfID ? "selected":"";
+    buttonClasses += (!book.shelf || book.shelf==='none') && (shelf.shelfID) === 'none' ? "selected":"";
 
     return (<button 
-        onClick={ (e) => props.moveBook(props.book, props.shelf.shelfID) }
+        onClick={ (e) => moveBook(book, shelf.shelfID) }
         className={buttonClasses}
     >
-        {props.shelf.shelfName}
+        {shelf.shelfName}
     </button>
     )
 }
