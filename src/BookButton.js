@@ -1,5 +1,6 @@
-//Functional component to display dropdown option for each book
+import PropTypes from 'prop-types';
 
+//Functional component to display dropdown option for each book
 const BookButton = ({ moveBook, book, shelf }) => {
     //add selected classes for the book and mark 'none' as selected if book is not in a shelf
     let buttonClasses = book.shelf === shelf.shelfID ? "selected":"";
@@ -12,6 +13,12 @@ const BookButton = ({ moveBook, book, shelf }) => {
         {shelf.shelfName}
     </button>
     )
+}
+
+BookButton.propTypes = {
+    moveBook: PropTypes.func.isRequired,
+    book: PropTypes.object.isRequired,
+    shelf: PropTypes.object.isRequired
 }
 
 export default BookButton;

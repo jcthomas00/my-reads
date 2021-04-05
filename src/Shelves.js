@@ -1,7 +1,8 @@
 import React from "react";
 import ShowBooks from "./ShowBooks.js";
 import { Link } from 'react-router-dom';
- 
+import PropTypes from 'prop-types';
+
 //Functional Component to display books by shelf
 const Shelves = ({ moveBook, shelves, books }) => {
     return (
@@ -19,6 +20,12 @@ const Shelves = ({ moveBook, shelves, books }) => {
             ))}
         </ul>
     )
+}
+
+ShowBooks.propTypes = {
+    moveBook: PropTypes.func.isRequired,
+    books: PropTypes.array.isRequired,
+    shelves: PropTypes.array.isRequired
 }
 
 export default Shelves;

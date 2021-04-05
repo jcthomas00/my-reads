@@ -1,4 +1,5 @@
 import BookButton from './BookButton';
+import PropTypes from 'prop-types';
 
 //Functional Component to display a grid of books
 const ShowBooks = ({ moveBook, shelves, books} ) => {
@@ -38,6 +39,13 @@ const ShowBooks = ({ moveBook, shelves, books} ) => {
             </div>
         </div>
     );
+}
+
+
+ShowBooks.propTypes = {
+    moveBook: PropTypes.func.isRequired,
+    books: PropTypes.array.isRequired,
+    shelves: PropTypes.array.isRequired
 }
 
 export default ShowBooks;
