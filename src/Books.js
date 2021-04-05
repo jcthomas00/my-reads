@@ -18,16 +18,21 @@ class Books extends Component {
     ];
 
     //move book in DB and refresh books in state
-    moveBook = (book, shelf) => {
-        BooksAPI.update(book,shelf);
-        this.fetchBooks();
+    moveBook = async (book, shelf) => {
+        const result = await BooksAPI.update(book,shelf);
+        if (result){
+            this.fetchBooks();
+        }
     }
 
     //grab books from DB and update state
-    fetchBooks = () => {
-        BooksAPI.getAll().then((books) => {
-          this.setState(()=>({books: books}));
-        });
+    fetchBooks = async () => {
+        const books = await BooksAPI.getAll();
+        this.setState(()=>({books: books}))
+        // Code before async await for reference
+        // BooksAPI.getAll().then((books) => {
+        //   this.setState(()=>({books: books}));
+        // });
     }
 
     //initial loading of books
@@ -37,12 +42,12 @@ class Books extends Component {
 
     render = () => (
         <div>
-            <Route exact path="/" render = { () => (
+            <Route exact path="/">
                 <Shelves books={this.state.books} moveBook={this.moveBook} shelves={this.shelves} />
-            ) } />
-            <Route path="/search" render = { () => (
+            </Route>
+            <Route path="/search">
                 <Search books={this.state.books} moveBook={this.moveBook} shelves={this.shelves} />
-            ) } />
+            </Route>
        </div> 
     );
 }
